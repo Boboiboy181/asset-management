@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-custom {
+  background-color: #DC4D01;
+  background-image: linear-gradient(180deg, #DC4D01 30%, color-5-primary 90%);
+  background-size: cover;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #DC4D01;
+  border-color: #DC4D01;
+}
