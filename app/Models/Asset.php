@@ -11,10 +11,9 @@ class Asset extends Model
 
     protected $fillable = [
         'name',
-        'description',
-        'price',
-        'quantity',
-        'status',
-        'category_id',
+        'value',
+        'residual_value',
+        'purchased_year',
+        'expired_year',
     ];
 }

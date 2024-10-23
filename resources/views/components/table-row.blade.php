@@ -4,7 +4,7 @@
 'data3',
 'data4',
 'data5',
-'detailUrl'
+'detail_url'
 ])
 
 <tr>
@@ -22,6 +22,6 @@
   </td>
   @endisset
   <td>
-    <a href="{{$detailUrl}}" class="btn btn-info">Detail</a>
+    <a href="{{$detail_url}}" class="btn btn-info">Detail</a>
   </td>
 </tr>

@@ -12,7 +12,9 @@ class AssetController extends Controller
     {
         $assets = Asset::all();
 
-        return view('assets.index', ['assets' => $assets]);
+        // dd($assets);
+
+        return view('pages.admin.asset.asset', ['assets' => $assets]);
     }
 
     public function show(string $id)

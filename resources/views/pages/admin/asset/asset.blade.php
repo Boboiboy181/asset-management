@@ -19,14 +19,15 @@
 <div class="container-fluid">
   <div class="card shadow mb-4">
     <div class="card-header py-3 text-end">
-      <a class="m-0 font-weight-bold text-primary" href="{{ route('admin.product.create') }}">Add new product</a>
+      <a class="m-0 font-weight-bold text-primary" href="">Add new product</a>
     </div>
     <div class="card-body">
-      <x-table :field1="'Id'" :field2="'Name'" :field3="'Price'" :field4="'Category'">
-        <!-- @foreach ($products as $product)
-        <x-table-row :data1="$product->_id" :data2="$product->name" :data3="$product->price" :data4="$product->category"
-          :detailUrl="route('admin.product.detail', ['id' => $product->_id])" />
-        @endforeach -->
+      <x-table :field1="'Id'" :field2="'Name'" :field3="'Value'" :field4="'Purchased Year'" :field5="'Expired Year'">
+  
+        @foreach ($assets as $asset)
+          <x-table-row :data1="$asset->id" :data2="$asset->name" :data3="$asset->value" :data4="$asset->purchased_year" :data5="$asset->expired_year"
+              :detail_url="'#'" />
+        @endforeach
       </x-table>
     </div>
   </div>

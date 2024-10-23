@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,9 @@
     <meta name="author" content="">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="{{url('/assets/WizzaLogo.svg')}}"/>
+    <link rel="shortcut icon" type="image/png" href="{{url('/assets/WizzaLogo.svg')}}" />
 
-    <title>Wizza - Dashboard</title>
+    <title>Asset Management</title>
     <!-- Custom fonts for this template-->
     <link
         href="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css') }}"
@@ -21,7 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/css/sb-admin-2.min.css') }}"
-          rel="stylesheet">
+        rel="stylesheet">
 
     <link
         href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css?fbclid=IwAR2Leèv1ZTLJsKEsnl4HGMf5XRZuPqx5yOFnFaOFbVgCiCeU87S0up6ptKU"
@@ -30,72 +31,74 @@
     @yield('custome-styles')
     @vite(['resources/css/app.css', 'resources/js/admin.js'])
 </head>
+
 <body id="page-top">
-<!-- Page Wrapper -->
-<div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Sidebar -->
-    @include('layouts.admin.sidebar')
-    <!-- End of Sidebar -->
+        <!-- Sidebar -->
+        @include('layouts.admin.sidebar')
+        <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-        <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-            <!-- Topbar -->
-            @include('layouts.admin.navbar')
-            <!-- End of Topbar -->
+                <!-- Topbar -->
+                @include('layouts.admin.navbar')
+                <!-- End of Topbar -->
 
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
+                    </div>
+
+                    @yield('contents')
+
+                    <!-- Content Row -->
+
+
                 </div>
-
-                @yield('contents')
-
-                <!-- Content Row -->
-
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            @include('layouts.admin.footer')
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        @include('layouts.admin.footer')
-        <!-- End of Footer -->
+        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-</div>
-<!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Bootstrap core JavaScript-->
-<script
-    src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js') }}"></script>
-<script
-    src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- Core plugin JavaScript-->
-<script
-    src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-<!-- Custom scripts for all pages-->
-<script src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/js/sb-admin-2.min.js') }}"></script>
-<!-- Page level plugins -->
-<script
-    src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/chart.js/Chart.min.js') }}"></script>
-<!-- Page level custom scripts -->
-@yield('custome-scripts')
+    <!-- Bootstrap core JavaScript-->
+    <script
+        src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js') }}"></script>
+    <script
+        src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Core plugin JavaScript-->
+    <script
+        src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/js/sb-admin-2.min.js') }}"></script>
+    <!-- Page level plugins -->
+    <script
+        src="{{ asset('https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/chart.js/Chart.min.js') }}"></script>
+    <!-- Page level custom scripts -->
+    @yield('custome-scripts')
 </body>
+
 </html>

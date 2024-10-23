@@ -12,15 +12,15 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ Route::is('admin.dashboard') ? 'active' : '' }}">
+        <a class="nav-link" href="{{route('admin.dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ Route::is('admin.asset') ? 'active' : '' }}">
+        <a class="nav-link" href="{{route('admin.asset')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Assets</span>
         </a>
@@ -38,8 +38,8 @@
 </ul>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('sidebarToggle').addEventListener('click', function () {
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
             if (localStorage.getItem('sidebar-toggle') === 'toggled') {
                 localStorage.setItem('sidebar-toggle', '');
             } else localStorage.setItem('sidebar-toggle', 'toggled');
