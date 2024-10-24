@@ -193,7 +193,7 @@
           Back to shop
         </a>
         <div class="dropdown-divider"></div>
-        <form action="" method="POST">
+        <form action="{{ route('logout') }}" method="POST">
           @csrf
           <button class="dropdown-item">
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
