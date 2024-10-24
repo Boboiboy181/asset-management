@@ -34,12 +34,14 @@ Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group(function ()
 });
 
 Route::prefix('dashboard')->middleware([CheckAdmin::class])->group(function () {
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-    Route::post('/users', [UserController::class, 'store'])->name('users.store');
-    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::prefix('users')->group(function () {
+        Route::get('', [UserController::class, 'index'])->name('admin.users');
+        Route::get('/create', [UserController::class, 'create'])->name('admin.user.create');
+        Route::post('', [UserController::class, 'store'])->name('users.store');
+        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+        Route::put('/{user}', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    });
 });
 
 
