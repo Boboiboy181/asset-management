@@ -26,7 +26,7 @@
   
         @foreach ($assets as $asset)
           <x-table-row :data1="$asset->id" :data2="$asset->name" :data3="$asset->value" :data4="$asset->purchased_year" :data5="$asset->expired_year"
-              :detail_url="'#'" />
+              :detail_url="route('admin.asset.detail', ['id' => $asset->id])" />
         @endforeach
       </x-table>
     </div>

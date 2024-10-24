@@ -11,6 +11,7 @@ class Asset extends Model
 
     protected $fillable = [
         'name',
+        'image_url',
         'value',
         'residual_value',
         'purchased_year',

@@ -15,6 +15,7 @@ class AssetSeeder extends Seeder
     {
         Asset::create([
             'name' => 'Office Laptop',
+            'image_url' => 'https://picsum.photos/id/1/600/900',
             'value' => 1000,
             'residual_value' => 200,
             'purchased_year' => 2020,
@@ -23,6 +24,7 @@ class AssetSeeder extends Seeder
 
         Asset::create([
             'name' => 'Projector',
+            'image_url' => 'https://picsum.photos/id/2/600/900',
             'value' => 800,
             'residual_value' => 100,
             'purchased_year' => 2019,
@@ -31,6 +33,7 @@ class AssetSeeder extends Seeder
 
         Asset::create([
             'name' => 'Conference Room Table',
+            'image_url' => 'https://picsum.photos/id/3/600/900',
             'value' => 1500,
             'residual_value' => 300,
             'purchased_year' => 2021,
@@ -39,6 +42,7 @@ class AssetSeeder extends Seeder
 
         Asset::create([
             'name' => 'Printer',
+            'image_url' => 'https://picsum.photos/id/4/600/900',
             'value' => 500,
             'residual_value' => 50,
             'purchased_year' => 2018,
@@ -47,6 +51,7 @@ class AssetSeeder extends Seeder
 
         Asset::create([
             'name' => 'Company Car',
+            'image_url' => 'https://picsum.photos/id/5/600/900',
             'value' => 25000,
             'residual_value' => 5000,
             'purchased_year' => 2017,

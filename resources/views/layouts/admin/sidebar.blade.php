@@ -19,7 +19,7 @@
         </a>
     </li>
 
-    <li class="nav-item {{ Route::is('admin.asset') ? 'active' : '' }}">
+    <li class="nav-item {{ Str::startsWith(request()->route()->getName(), 'admin.asset') ? 'active' : '' }}">
         <a class="nav-link" href="{{route('admin.asset')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Assets</span>

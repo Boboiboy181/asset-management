@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image_url');
             $table->decimal('value', 10, 2);
             $table->decimal('residual_value', 10, 2);
             $table->integer('purchased_year');

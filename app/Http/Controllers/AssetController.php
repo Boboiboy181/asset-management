@@ -12,8 +12,6 @@ class AssetController extends Controller
     {
         $assets = Asset::all();
 
-        // dd($assets);
-
         return view('pages.admin.asset.asset', ['assets' => $assets]);
     }
 
@@ -21,7 +19,7 @@ class AssetController extends Controller
     {
         $asset = Asset::findOrFail($id);
 
-        return view('pages.admin.product.product-detail', ['asset' => $asset]);
+        return view('pages.admin.asset.asset-detail', ['asset' => $asset]);
     }
 
     public function create()
@@ -64,6 +62,6 @@ class AssetController extends Controller
 
         $asset->delete();
 
-        return redirect()->route('admin.product')->with('success', 'Asset deleted successfully');
+        return redirect()->route('admin.asset')->with('success', 'Asset deleted successfully');
     }
 }
