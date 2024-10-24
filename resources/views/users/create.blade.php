@@ -7,10 +7,11 @@
 </head>
 <body>
     <h1>Thêm Người Dùng</h1>
+    
     <form action="{{ route('users.store') }}" method="POST">
         @csrf
         <label for="name">Tên:</label>
-        <input type="text" name="name" required>
+        <input type="text" name="name" pattern="[A-Za-z\s]+" required>
         <br>
         <label for="email">Email:</label>
         <input type="email" name="email" required>

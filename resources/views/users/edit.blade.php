@@ -11,7 +11,7 @@
         @csrf
         @method('put')
         <label for="name">Tên:</label>
-        <input type="text" name="name" value="{{ $user->name }}" required>
+        <input type="text" name="name" value="{{ $user->name }}"pattern="[A-Za-z\s]+" required>
         <br>
         <label for="email">Email:</label>
         <input type="email" name="email" value="{{ $user->email }}" required>

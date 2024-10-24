@@ -31,19 +31,20 @@ class UserController extends Controller
 {
     // Validate dữ liệu trước khi lưu
     $validatedData = $request->validate([
-        'name' => 'required|string|max:255',
+        'name' => 'required|string|max:255|',
         'email' => 'required|string|email|max:255|unique:users', // Lưu ý sửa bảng thành `users` đúng với tên bảng
         'password' => 'required|string|min:8',  // Đảm bảo mật khẩu có ít nhất 8 ký tự
         'role' => 'required|string',
     ]);
 
-    // Tạo mới user
+    
     User::create([
         'name' => $validatedData['name'],
         'email' => $validatedData['email'],
         'password' => bcrypt($validatedData['password']),  // Mã hóa mật khẩu trước khi lưu
         'role' => $validatedData['role'],
     ]);
+    
 
     // Sau khi tạo, chuyển hướng về trang danh sách với thông báo thành công
     return redirect()->route('users.index')->with('success', 'Người dùng đã được thêm thành công!');
@@ -59,7 +60,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|regex:/^[a-zA-Z0-9\s-_]+$/',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             // 'password' => 'nullable|string|min:6|confirmed',
             'role' => 'required|string|max:255',
