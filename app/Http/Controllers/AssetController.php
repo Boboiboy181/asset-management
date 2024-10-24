@@ -24,18 +24,23 @@ class AssetController extends Controller
 
     public function create()
     {
-        return view('pages.admin.product.product-create');
+        return view('pages.admin.asset.asset-create');
     }
 
     public function store(StoreAssetRequest $request)
     {
         $data = $request->validated();
-        $image = $data['imgURL'];
-        // $uploadedFileUrl = Cloudinary::upload($image->getRealPath())->getSecurePath();
-        // $data['imgURL'] = $uploadedFileUrl;
-        $product = Asset::create($data);
+        $image = $data['image_url'];
 
-        return redirect()->route('admin.product.detail', ['id' => $product->_id])->with('success', 'Product created successfully');
+
+
+        $uploadedFileUrl = cloudinary()->upload($image->getRealPath())->getSecurePath();
+
+
+        $data['image_url'] = $uploadedFileUrl;
+        $asset = Asset::create($data);
+
+        return redirect()->route('admin.asset.detail', ['id' => $asset->id])->with('success', 'Asset created successfully');
     }
 
     public function edit(string $id)

@@ -22,13 +22,21 @@ class StoreAssetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'quantity' => 'required|numeric',
-            'status' => 'required|string',
-            'category_id' => 'required|numeric',
-            'imgURL' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => ['required', 'string'],
+            'value' => ['required', 'numeric'],
+            'residual_value' => ['required', 'numeric'],
+            'expired_year' => ['required', 'numeric'],
+            'purchased_year' => ['required', 'numeric'],
+            'image_url' => ['required', 'image', 'mimes:jpg,jpeg,png'],
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if ($this->expired_year <= $this->purchased_year) {
+                $validator->errors()->add('expired_year', 'The expired year must be greater than the purchased year.');
+            }
+        });
     }
 }

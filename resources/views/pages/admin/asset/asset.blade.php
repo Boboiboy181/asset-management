@@ -19,7 +19,7 @@
 <div class="container-fluid">
   <div class="card shadow mb-4">
     <div class="card-header py-3 text-end">
-      <a class="m-0 font-weight-bold text-primary" href="">Add new product</a>
+      <a class="m-0 font-weight-bold text-primary" href="{{route('admin.asset.create')}}">Add new product</a>
     </div>
     <div class="card-body">
       <x-table :field1="'Id'" :field2="'Name'" :field3="'Value'" :field4="'Purchased Year'" :field5="'Expired Year'">
