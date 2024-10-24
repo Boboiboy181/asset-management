@@ -189,7 +189,7 @@
           Profile
         </a>
         <div class="dropdown-divider"></div>
-        <form action="{{route('logout')}}" method="POST">
+        <form action="{{ route('logout') }}" method="POST">
           @csrf
           <button class="dropdown-item" onclick="event.preventDefault();
                                         this.closest('form').submit();">
