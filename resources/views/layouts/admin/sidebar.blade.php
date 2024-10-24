@@ -13,18 +13,28 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ Route::is('admin.dashboard') ? 'active' : '' }}">
-        <a class="nav-link" href="{{route('admin.dashboard')}}">
+        <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
     </li>
 
     <li class="nav-item {{ Str::startsWith(request()->route()->getName(), 'admin.asset') ? 'active' : '' }}">
-        <a class="nav-link" href="{{route('admin.asset')}}">
+        <a class="nav-link" href="{{ route('admin.asset') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Assets</span>
         </a>
     </li>
+
+    @if (auth()->user()->role == 'Admin')
+        <li class="nav-item {{ Str::startsWith(request()->route()->getName(), 'admin.users') ? 'active' : '' }}}">
+            <a class="nav-link" href="{{ route('admin.users') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Users</span>
+            </a>
+        </li>
+    @endif
+
 
 
     <!-- Divider -->

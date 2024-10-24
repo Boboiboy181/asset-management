@@ -3,6 +3,9 @@
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AssetHistoryController;
+use App\Http\Middleware\CheckAdmin;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,5 +32,18 @@ Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group(function ()
         Route::delete('/{id}', [AssetController::class, 'destroy'])->name('admin.asset.delete');
     });
 });
+
+Route::prefix('dashboard')->middleware([CheckAdmin::class])->group(function () {
+    Route::prefix('users')->group(function () {
+        Route::get('', [UserController::class, 'index'])->name('admin.users');
+        Route::get('/create', [UserController::class, 'create'])->name('admin.user.create');
+        Route::post('', [UserController::class, 'store'])->name('users.store');
+        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+        Route::put('/{user}', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    });
+});
+
+
 
 require __DIR__ . '/auth.php';
