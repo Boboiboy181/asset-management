@@ -45,9 +45,9 @@ class AssetController extends Controller
 
     public function edit(string $id)
     {
-        $product = Asset::findOrFail($id);
+        $asset = Asset::findOrFail($id);
 
-        return view('pages.admin.product.product-edit', ['product' => $product]);
+        return view('pages.admin.asset.asset-edit', ['asset' => $asset]);
     }
 
     public function update(UpdateAssetRequest $request, string $id)
@@ -58,7 +58,7 @@ class AssetController extends Controller
 
         $asset->update($data);
 
-        return redirect()->route('admin.product.detail', ['id' => $id])->with('success', 'Asset updated successfully');
+        return redirect()->route('admin.asset.detail', ['id' => $id])->with('success', 'Asset updated successfully');
     }
 
     public function destroy(string $id)

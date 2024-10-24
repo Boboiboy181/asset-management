@@ -37,7 +37,7 @@
                             </span>
                         </p>
                         <div>
-                            <a href=""
+                            <a href="{{ route('admin.asset.edit', ['id' => $asset->id]) }}"
                                 class="btn btn-warning">Edit</a>
                             <a data-toggle="modal" data-target="#confirmModal" class="btn btn-danger">Delete</a>
                         </div>

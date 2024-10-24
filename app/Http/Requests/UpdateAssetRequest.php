@@ -11,7 +11,7 @@ class UpdateAssetRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateAssetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string'],
+            'value' => ['required', 'numeric'],
+            'residual_value' => ['required', 'numeric'],
+            'expired_year' => ['required', 'numeric'],
+            'purchased_year' => ['required', 'numeric'],
         ];
     }
 }
